@@ -4,6 +4,7 @@ First try these codes please do not forget to enable serial communication over r
 These codes simplifies to connec unit over serial and send UART commands.
 
 Example Usage 
+```
 # read anchors list
 read_msg("la")
 # read unit modes
