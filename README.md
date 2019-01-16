@@ -5,6 +5,7 @@ These codes simplifies to connec unit over serial and send UART commands.
 
 Example Usage 
 ```
+start_serial()
 # read anchors list
 read_msg("la")
 # read unit modes
