@@ -1,10 +1,12 @@
 import serial
 import time
 
-port = '/dev/ttyS0'
-baud = 115200
+ser = serial.Serial('/dev/ttyS0', 115200, timeout=0)
 
-ser = serial.Serial(port, baud, timeout=0)
+def start_serial():
+    ser.write(b'\r\r')
+    time.sleep(0.5)
+    ser.flushInput()
 
 
 def read_msg(msg):
@@ -22,11 +24,8 @@ def read_msg(msg):
             print(response.decode().strip())
     ser.flushInput()
 
-
-ser.write(b'\r\r')
-time.sleep(0.5)
-ser.flushInput()
-
+# Start serial and send double \r to enter shell
+start_serial()
 # read anchors list
 read_msg("la")
 # read unit modes
